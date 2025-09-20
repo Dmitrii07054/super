@@ -4,8 +4,8 @@ del log
 
 set MAIN=main
 set EXE=example
-set CHARSET="-finput-charset=ulf-8 -fexec-charset=windows-1251"
+set CHARSET="-finput-charset=utf-8 -fexec-charset=windows-1251"
 
-g++ "%CHARSET" %MAIN%.cpp -o %EXE%
+g++ "%CHARSET%" %MAIN%.cpp -o %EXE%
 
-example.exe
+%EXE%
