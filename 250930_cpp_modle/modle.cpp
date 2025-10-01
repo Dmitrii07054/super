@@ -1,9 +1,10 @@
 #include <iostream>
 #include "calculator.h"
-
+#include <locale.h> //русский язык
 using namespace std;
 
 int main() {
+	setlocale(LC_ALL, "ru_RU.UTF-8"); //для вывода кириллицы
     int x = 10, y = 5;
     
     cout << "=== Простая модульная программа ===" << endl;
