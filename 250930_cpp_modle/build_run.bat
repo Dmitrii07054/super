@@ -1,15 +1,13 @@
 @echo off
-chcp 1251 > nul
-echo Компиляция всех cpp файлов...
+chcp 1251 > log
+del log
 
+set CPP_FILES="modle.cpp calculator.cpp"
+set EXE=modle.exe
 set CHARSET="-finput-charset=utf-8 -fexec-charset=windows-1251"
 
-g++ *.cpp -o myprogram.exe
-if %errorlevel% == 0 (
-    echo Запуск программы...
-    echo.
-    myprogram.exe
-) else (
-    echo Ошибка компиляции!
-)
-pause
+if exist %EXE% del %EXE%
+
+g++ "%CHARSET%" "%CPP_FILES%" -o %EXE%
+
+%EXE%
