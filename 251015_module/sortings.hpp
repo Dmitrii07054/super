@@ -1,10 +1,19 @@
-#ifndef SORTINGS_HPP
-#define SORTINGS_HPP
+#ifndef ARRAY_OPERATIONS_H
+#define ARRAY_OPERATIONS_H
 
-namespace biv {
-	namespace sortings {
-		void bubble_sort(int* const arr, const int size);
-	}
-}
+// Создание массива
+int* createArray(int n);
+
+// Ввод массива
+void inputArray(int* arr, int n);
+
+// Вывод массива
+void printArray(int* arr, int n);
+
+// Освобождение памяти
+void deleteArray(int* arr);
+
+// Сортировка вставками
+void insertionSort(int* arr, int n);
 
 #endif

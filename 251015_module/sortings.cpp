@@ -1,13 +1,45 @@
-#include "sortings.hpp"
+#include <iostream>
+#include "array_operations.h"
 
-#include <algorithm>
+using namespace std;
 
-void biv::sortings::bubble_sort(int* const arr, const int size) {
-    for (int i = 0; i < size - 1; i++) {
-        for (int j = 0; j < size - 1 - i; j++) {
-            if (arr[j] > arr[j + 1]) {
-                std::swap(arr[j], arr[j + 1]);
-            }
+// Создание массива
+int* createArray(int n) {
+    return new int[n];
+}
+
+// Ввод массива
+void inputArray(int* arr, int n) {
+    for(int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+}
+
+// Вывод массива
+void printArray(int* arr, int n) {
+    for(int i = 0; i < n; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+}
+
+// Освобождение памяти
+void deleteArray(int* arr) {
+    delete[] arr;
+}
+
+// Сортировка вставками
+void insertionSort(int* arr, int n) {
+    for (int i = 1; i < n; i++) {
+        int key = arr[i];
+        int j = i - 1;
+        
+        // Перемещаем элементы arr[0..i-1], которые больше key
+        // на одну позицию вперед
+        while (j >= 0 && arr[j] > key) {
+            arr[j + 1] = arr[j];
+            j = j - 1;
         }
+        arr[j + 1] = key;
     }
 }
