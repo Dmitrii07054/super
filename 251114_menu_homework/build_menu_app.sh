@@ -1,4 +1,4 @@
-CPP_FILES="menu_functions.cpp main.cpp"
+CPP_FILES="menu_function.cpp main.cpp"
 APP=example
 
 if [ -f $APP ]; then rm $APP
