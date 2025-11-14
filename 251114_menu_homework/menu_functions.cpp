@@ -9,3 +9,23 @@ void MDP::exit() {
 void MDP::study() {
 
 }
+
+void MDP::study_summ() {
+
+}
+
+void MDP::study_substract() {
+
+}
+
+void MDP::study_multiply() {
+
+}
+
+void MDP::study_divide() {
+
+}
+
+void MDP::study_go_back() {
+
+}
