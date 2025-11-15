@@ -2,7 +2,7 @@
 chcp 1251 > log
 del log
 
-set CPP_FILES="menu_function.cpp main.cpp"
+set CPP_FILES="menu_function.cpp main.cpp menu_items.cpp"
 set EXE=myproject.exe
 set CHARSET="-finput-charset=utf-8 -fexec-charset=windows-1251"
 
