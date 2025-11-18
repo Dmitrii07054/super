@@ -22,31 +22,59 @@ const MDP::MenuItem* MDP::exit(const MenuItem* current) {
 	std::exit(0);
 }
 
+//
+const MDP::MenuItem* MDP::study_algebra(const MenuItem* current) {
+	
+	std::cout << "Переходим к изучению алгебры!" << std::endl << std::endl;
+	return current->parent;
+}
+
+const MDP::MenuItem* MDP::study_analysis(const MenuItem* current) {
+	
+	std::cout << "Переходим к изучению математического анализа!" << std::endl << std::endl;
+	return current->parent;
+}
+
+const MDP::MenuItem* MDP::study_go_back(const MenuItem* current) {
+	return current->parent;
+}
+
 const MDP::MenuItem* MDP::study_summ(const MenuItem* current) {
 	
-	std::cout << current->title << std::endl << std::endl;
+	std::cout << "Изучаем сложение!" << std::endl << std::endl;
 	return current->parent;
 }
 
 const MDP::MenuItem* MDP::study_substract(const MenuItem* current) {
 
-	std::cout << current->title << std::endl;
+	std::cout << "Изучаем вычитание!" << std::endl;
 	return current->parent;
 }
 
 const MDP::MenuItem* MDP::study_multiply(const MenuItem* current) {
 
-	std::cout << current->title << std::endl;
+	std::cout << "Изучаем умножение!" << std::endl;
 	return current->parent;
 }
 
 const MDP::MenuItem* MDP::study_divide(const MenuItem* current) {
 
-	std::cout << current->title << std::endl << std::endl;
+	std::cout << "Изучаем деление!" << std::endl << std::endl;
 	return current->parent;
 }
 
-const MDP::MenuItem* MDP::study_go_back(const MenuItem* current) {
-	
+const MDP::MenuItem* MDP::study_go_back_subjects(const MenuItem* current) {
 	return current->parent->parent;
 }
+
+const MDP::MenuItem* MDP::study_diff(const MenuItem* current) {
+	std::cout << "Изучаем дифференциальное исчисление!" << std::endl << std::endl;
+	return current->parent;
+}
+	
+const MDP::MenuItem* MDP::study_integral(const MenuItem* current) {
+	std::cout << "Изучаем интегральное исчисление!" << std::endl << std::endl;
+	return current->parent;
+}
+	
+	
