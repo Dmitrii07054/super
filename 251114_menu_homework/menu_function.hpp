@@ -10,7 +10,6 @@ namespace MDP {
 	const MenuItem* study_analysis(const MenuItem* current);
 	const MenuItem* study_go_back(const MenuItem* current);
 	
-	
 	const MenuItem* study_summ(const MenuItem* current);
 	const MenuItem* study_substract(const MenuItem* current);
 	const MenuItem* study_multiply(const MenuItem* current);
