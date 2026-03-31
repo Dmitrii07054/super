@@ -1,9 +1,0 @@
-C:/_IT/code/super/260314_vector_list/build/CMakeFiles/containers_lib.dir
-C:/_IT/code/super/260314_vector_list/build/CMakeFiles/edit_cache.dir
-C:/_IT/code/super/260314_vector_list/build/CMakeFiles/rebuild_cache.dir
-C:/_IT/code/super/260314_vector_list/build/src/CMakeFiles/edit_cache.dir
-C:/_IT/code/super/260314_vector_list/build/src/CMakeFiles/rebuild_cache.dir
-C:/_IT/code/super/260314_vector_list/build/test/CMakeFiles/doubly_linked_list_tests.dir
-C:/_IT/code/super/260314_vector_list/build/test/CMakeFiles/vector_tests.dir
-C:/_IT/code/super/260314_vector_list/build/test/CMakeFiles/edit_cache.dir
-C:/_IT/code/super/260314_vector_list/build/test/CMakeFiles/rebuild_cache.dir

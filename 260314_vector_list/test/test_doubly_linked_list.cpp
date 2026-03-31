@@ -4,9 +4,7 @@
 
 using dim::DoublyLinkedList;
 
-// ============================================================
 // 1. Тест для push_back и get_size
-// ============================================================
 
 TEST(DoublyLinkedListTest, PushBackAndGetSize) {
     DoublyLinkedList<int> list;
@@ -20,9 +18,7 @@ TEST(DoublyLinkedListTest, PushBackAndGetSize) {
     EXPECT_EQ(list.get_size(), 3);
 }
 
-// ============================================================
 // 2. Тест для has_item
-// ============================================================
 
 TEST(DoublyLinkedListTest, HasItem) {
     DoublyLinkedList<int> list;
@@ -36,9 +32,7 @@ TEST(DoublyLinkedListTest, HasItem) {
     EXPECT_FALSE(list.has_item(100));
 }
 
-// ============================================================
 // 3. Тест для remove_first (удаление из начала)
-// ============================================================
 
 TEST(DoublyLinkedListTest, RemoveFirstFromBeginning) {
     DoublyLinkedList<int> list;
@@ -52,9 +46,7 @@ TEST(DoublyLinkedListTest, RemoveFirstFromBeginning) {
     EXPECT_TRUE(list.has_item(20));
 }
 
-// ============================================================
 // 4. Тест для remove_first (удаление из середины)
-// ============================================================
 
 TEST(DoublyLinkedListTest, RemoveFirstFromMiddle) {
     DoublyLinkedList<int> list;
@@ -69,9 +61,7 @@ TEST(DoublyLinkedListTest, RemoveFirstFromMiddle) {
     EXPECT_TRUE(list.has_item(30));
 }
 
-// ============================================================
 // 5. Тест для remove_first (удаление из конца)
-// ============================================================
 
 TEST(DoublyLinkedListTest, RemoveFirstFromEnd) {
     DoublyLinkedList<int> list;
@@ -85,9 +75,7 @@ TEST(DoublyLinkedListTest, RemoveFirstFromEnd) {
     EXPECT_TRUE(list.has_item(10));
 }
 
-// ============================================================
 // 6. Тест для remove_first (удаление единственного элемента)
-// ============================================================
 
 TEST(DoublyLinkedListTest, RemoveFirstSingleElement) {
     DoublyLinkedList<int> list;
@@ -98,9 +86,7 @@ TEST(DoublyLinkedListTest, RemoveFirstSingleElement) {
     EXPECT_FALSE(list.has_item(10));
 }
 
-// ============================================================
 // 7. Тест для remove_first (элемент не найден)
-// ============================================================
 
 TEST(DoublyLinkedListTest, RemoveFirstNotFound) {
     DoublyLinkedList<int> list;
@@ -111,9 +97,7 @@ TEST(DoublyLinkedListTest, RemoveFirstNotFound) {
     EXPECT_EQ(list.get_size(), 2);
 }
 
-// ============================================================
 // 8. Тест для print (просто проверяем, что не падает)
-// ============================================================
 
 TEST(DoublyLinkedListTest, PrintDoesNotCrash) {
     DoublyLinkedList<int> list;
