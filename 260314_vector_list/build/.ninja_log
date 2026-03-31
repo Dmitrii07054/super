@@ -1,0 +1,7 @@
+# ninja log v7
+6	449	7966870774111728	CMakeFiles/containers_lib.dir/src/doubly_linked_list.cpp.obj	ebc550b6dd2da192
+26	465	7966870774314364	CMakeFiles/containers_lib.dir/src/vector.cpp.obj	1a1841ce617fff00
+87	592	7966870774909633	test/CMakeFiles/doubly_linked_list_tests.dir/templates_doubly_linked_list.cpp.obj	9ef7bc02449fa058
+465	645	7966870778686481	libcontainers_lib.a	da1cb2501af83112
+45	1618	7966870774499889	test/CMakeFiles/doubly_linked_list_tests.dir/test_doubly_linked_list.cpp.obj	12949232a281e40e
+1620	1917	7966870790244852	test/doubly_linked_list_tests.exe	85e782b169f9bbdd

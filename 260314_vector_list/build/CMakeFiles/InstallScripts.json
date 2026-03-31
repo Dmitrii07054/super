@@ -1,0 +1,9 @@
+{
+	"InstallScripts" : 
+	[
+		"C:/_IT/code/super/260314_vector_list/build/cmake_install.cmake",
+		"C:/_IT/code/super/260314_vector_list/build/src/cmake_install.cmake",
+		"C:/_IT/code/super/260314_vector_list/build/test/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

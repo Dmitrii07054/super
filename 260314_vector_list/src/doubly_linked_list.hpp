@@ -2,7 +2,7 @@
 
 #include <cstddef>
 
-namespace biv {
+namespace dim {
 	template <typename T> 
 	class DoublyLinkedList {
 		private:
