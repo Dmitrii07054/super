@@ -1,12 +1,12 @@
 #pragma once
 
 #include <cstddef>
-		
+
 namespace dim {
 	template <typename T> 
 	class Vector {
 		private:
-			static const std::size_t START_CAPACITY;
+			static const std::size_t START_CAPACITY = 1;
 
 			T* arr = nullptr;
 			std::size_t capacity = START_CAPACITY;

@@ -35,9 +35,7 @@ template<typename T>
 bool DoublyLinkedList<T>::has_item(const T& value) const noexcept
 {
 	Node* current = begin;
-
 	while (current != nullptr) {
-
 		if (current->value == value) {
 			return true;
 		}
@@ -52,17 +50,14 @@ void DoublyLinkedList<T>::print() const noexcept
 {
 	if (begin == nullptr) {
 		std::cout << "Empty!";
-
 		return;
 	}
 
 	Node* current = begin;
-
 	while (current != nullptr) {
 		std::cout << "node = " << current->value << " -> ";
 		current = current->next;
 	}
-
 	std::cout << std::endl;
 }
 
