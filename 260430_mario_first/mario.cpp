@@ -86,6 +86,16 @@ void VertMoveObject(TObject *obj)
 		}
 }
 
+
+void MarioCollision()
+{
+	for (int i = 0; i < movingLength; i++)
+		if (IsCollision(mario, moving[i]))
+		{
+			CreateLevel(level);
+		}
+}
+
 void HorizonMoveObject(TObject *obj)
 {
 	obj[0].x += obj[0].horizSpeed;
@@ -97,6 +107,14 @@ void HorizonMoveObject(TObject *obj)
 			obj[0].horizSpeed = -obj[0].horizSpeed;
 			return;
 		}
+		
+	TObject tmp = *obj;
+	VertMoveObject(&tmp);
+	if (tmp.IsFly == TRUE)
+	{
+		obj[0].x -= obj[0].horizSpeed;
+		obj[0].horizSpeed = -obj[0].horizSpeed;
+	}
 }
 
 BOOL IsPosInMap(int x, int y)
@@ -195,6 +213,8 @@ int main()
 		if (mario.y > mapHeight) CreateLevel(level);
 		
 		VertMoveObject(&mario);
+		MarioCollision();
+		
 		for (int i = 0; i < brickLength; i++)
 			PutObjectOnMap(brick[i]);
 		for (int i = 0; i < movingLength; i++)
