@@ -12,6 +12,7 @@ typedef struct SObject {
 	float vertSpeed;
 	BOOL IsFly;
 	char cType;
+	float horizSpeed;
 	
 } TObject;
 
@@ -55,6 +56,7 @@ void InitObject(TObject *obj, float xPos, float yPos, float oWidth, float oHeigh
 	(*obj).height = oHeight;
 	(*obj).vertSpeed = 0;
 	(*obj).cType = inType;
+	(*obj).horizSpeed = 0.2;
 }
 
 BOOL IsCollision(TObject o1, TObject o2);
@@ -82,6 +84,11 @@ void VertMoveObject(TObject *obj)
 			}
 			break;
 		}
+}
+
+void HorizonMoveObject(TObject *obj)
+{
+	obj[0].x += obj[0].horizSpeed;
 }
 
 BOOL IsPosInMap(int x, int y)
@@ -124,6 +131,8 @@ void HorizonMoveMap (float dx)
 	
 	for (int i = 0; i < brickLength; i++)
 		brick[i].x += dx;
+	for (int i = 0; i < brickLength; i++)
+		moving[i].x += dx;
 }
 
 BOOL IsCollision(TObject o1, TObject o2)
@@ -183,6 +192,7 @@ int main()
 		for (int i = 0; i < movingLength; i++)
 		{
 			VertMoveObject(moving + i);
+			HorizonMoveObject(moving + i);
 			PutObjectOnMap(moving[i]);
 		}
 		PutObjectOnMap(mario);
