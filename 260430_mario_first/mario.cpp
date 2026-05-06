@@ -78,7 +78,7 @@ void VertMoveObject(TObject *obj)
 			if (brick[i].cType == '+')
 			{
 				level ++;
-				if (level > 2) level = 1;
+				if (level > 3) level = 1;
 				CreateLevel(level);
 				Sleep(1000);
 			}
@@ -204,6 +204,20 @@ void CreateLevel(int lvl)
 	if (lvl == 1)
 	{
 		brickLength = 0;
+		InitObject(GetNewBrick(), 20, 20, 40, 5, '#');
+			InitObject(GetNewBrick(), 30, 10, 5, 3, '?');
+			InitObject(GetNewBrick(), 50, 10, 5, 3, '?');
+		InitObject(GetNewBrick(), 60, 15, 40, 10, '#');
+		InitObject(GetNewBrick(), 100, 20, 20, 5, '#');
+		InitObject(GetNewBrick(), 120, 15, 10, 10, '#');
+		InitObject(GetNewBrick(), 150, 20, 40, 5, '#');
+		InitObject(GetNewBrick(), 210, 15, 10, 10, '+');
+	}
+	
+	
+	if (lvl == 2)
+	{
+		brickLength = 0;
 		brick = (TObject*)realloc( brick, sizeof(*brick) * brickLength );
 		InitObject(GetNewBrick(), 20, 20, 40, 5, '#');
 		InitObject(GetNewBrick(), 60, 15, 10, 10, '#');
@@ -220,15 +234,20 @@ void CreateLevel(int lvl)
 		InitObject(GetNewMoving(), 175, 10, 3, 2, 'o');
 	}
 	
-	if (lvl == 2) 
+	if (lvl == 3) 
 	{
 		brickLength = 5;
-		brick = (TObject*)realloc( brick, sizeof(*brick) * brickLength );
-		InitObject(brick+0, 20, 20, 40, 5, '#');
-		InitObject(brick+1, 60, 15, 10, 10, '#');
-		InitObject(brick+2, 80, 20, 20, 5, '#');
-		InitObject(brick+3, 210, 15, 10, 10, '+');
-		InitObject(brick+4, 100, 15, 10, 10, '+');
+		InitObject(GetNewBrick(), 20, 20, 40, 5, '#');
+		InitObject(GetNewBrick(), 80, 15, 10, 10, '#');
+		InitObject(GetNewBrick(), 120, 20, 20, 5, '#');
+		InitObject(GetNewBrick(), 160, 15, 10, 10, '+');
+		movingLength = 0;
+		InitObject(GetNewMoving(), 25, 10, 3, 2, 'o');
+		InitObject(GetNewMoving(), 50, 10, 3, 2, 'o');
+		InitObject(GetNewMoving(), 80, 10, 3, 2, 'o');
+		InitObject(GetNewMoving(), 90, 10, 3, 2, 'o');
+		InitObject(GetNewMoving(), 120, 10, 3, 2, 'o');
+		InitObject(GetNewMoving(), 130, 10, 3, 2, 'o');
 	}
 }
 
@@ -277,3 +296,5 @@ int main()
 	
 	return 0;
 }
+
+//8:00
