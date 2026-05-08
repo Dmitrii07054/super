@@ -1,11 +1,11 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include <math.h>
-#include <windows.h>
+#include <stdlib.h>
+#include <stdio.h>
 #include <string.h>
+#include <windows.h>
 
-#define mapWidth 80
 #define mapHeight 25
+#define mapWidth 80
 
 typedef struct SObject {
 	float x,y;
@@ -50,8 +50,13 @@ void InitObject(TObject *obj, float xPos, float yPos, float oWidth, float oHeigh
 	(*obj).cType = inType;
 	(*obj).horizSpeed = 0.2;
 }
-void CreateLevel(TObject *mario, TObject **brick, int *brickLength, TObject **moving, int *movingLength, int *score, int lvl, int maxLvl);
-void PlayerDead(TObject *mario, TObject **brick, int *brickLength, TObject **moving, int *movingLength, int *score, int *level, int maxLvl)
+void CreateLevel(TObject *mario, TObject **brick,
+ int *brickLength, TObject **moving, 
+ int *movingLength, int *score, int lvl, int maxLvl);
+ 
+void PlayerDead(TObject *mario, TObject **brick, 
+ int *brickLength, TObject **moving, int *movingLength, 
+ int *score, int *level, int maxLvl)
 {
 	system("color 4F");
 	Sleep(500);
@@ -60,11 +65,11 @@ void PlayerDead(TObject *mario, TObject **brick, int *brickLength, TObject **mov
 
 BOOL IsCollision(TObject o1, TObject o2);
 
-
-
 TObject *GetNewMoving(TObject **moving, int *movingLength);
 
-void VertMoveObject(TObject *obj, TObject *mario, TObject **brick, int *brickLength, TObject **moving, int *movingLength, int *score, int *level, int maxLvl)
+void VertMoveObject(TObject *obj, TObject *mario, TObject **brick, 
+ int *brickLength, TObject **moving, int *movingLength, 
+ int *score, int *level, int maxLvl)
 {
 	(*obj).IsFly = TRUE;
 	(*obj).vertSpeed += 0.05;
@@ -107,7 +112,8 @@ void DeleteMoving(TObject **moving, int *movingLength, int i)
 	*moving = (TObject*)realloc(*moving, sizeof(**moving) * (*movingLength));
 }
 
-void MarioCollision(TObject *mario, TObject **moving, int *movingLength, int *score, TObject *brick, int brickLength, int *level, int maxLvl)
+void MarioCollision(TObject *mario, TObject **moving, int *movingLength, 
+ int *score, TObject *brick, int brickLength, int *level, int maxLvl)
 {
 	for (int i = 0; i < *movingLength; i++)
 		if (IsCollision(*mario, (*moving)[i]))
@@ -207,7 +213,8 @@ void HorizonMoveMap (TObject *mario, TObject *brick, int brickLength, TObject *m
 
 BOOL IsCollision(TObject o1, TObject o2)
 {
-	return ((o1.x + o1.width) > o2.x) && (o1.x < (o2.x + o2.width)) && ((o1.y + o1.height) > o2.y) && (o1.y < (o2.y + o2.height));
+	return ((o1.x + o1.width) > o2.x) && (o1.x < (o2.x + o2.width)) 
+	&& ((o1.y + o1.height) > o2.y) && (o1.y < (o2.y + o2.height));
 }
 
 TObject *GetNewBrick(TObject **brick, int *brickLength)
@@ -235,7 +242,8 @@ void PutScoreOnMap(int score)
 	}
 }
 
-void CreateLevel(TObject *mario, TObject **brick, int *brickLength, TObject **moving, int *movingLength, int *score, int lvl, int maxLvl)
+void CreateLevel(TObject *mario, TObject **brick, int *brickLength, 
+ TObject **moving, int *movingLength, int *score, int lvl, int maxLvl)
 {
 	system("color 9F");
 	
@@ -301,7 +309,6 @@ void CreateLevel(TObject *mario, TObject **brick, int *brickLength, TObject **mo
 		InitObject(GetNewMoving(moving, movingLength), 120, 10, 3, 2, 'o');
 		InitObject(GetNewMoving(moving, movingLength), 130, 10, 3, 2, 'o');
 	}
-	
 }
 
 int main()
@@ -315,7 +322,8 @@ int main()
 	int score = 0;
 	int maxLvl = 0;
 	
-	CreateLevel(&mario, &brick, &brickLength, &moving, &movingLength, &score, level, maxLvl);
+	CreateLevel(&mario, &brick, &brickLength, &moving, 
+	 &movingLength, &score, level, maxLvl);
 	
 	do 
 	{
