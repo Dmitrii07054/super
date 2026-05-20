@@ -134,7 +134,10 @@ void marioCollision(TObject *mario, TObject *&moving, int &movingLength,
                     i--;
                     continue;
                 } else {
-                    playerDead(mario, NULL, brickLength, moving, movingLength, score, level, maxLvl);
+					
+					TObject *dummyBrick = brick;
+					
+                    playerDead(mario, brick, brickLength, moving, movingLength, score, level, maxLvl);
                 }
             }
 
