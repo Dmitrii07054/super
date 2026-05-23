@@ -20,3 +20,5 @@ void MovingObject::update() {
     applyGravity();
     y += vertSpeed;
 }
+
+
