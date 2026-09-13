@@ -28,6 +28,8 @@ KeyBoardWindow::KeyBoardWindow(QWidget* parent) : QWidget(parent) {
 	display->setText("Помоги мне заработать лучше...");
 
 	keyboard = new KeyBoard(keyboard_width);
+	
+	connect(keyboard, &KeyBoard::key_clicked, this, &KeyBoardWindow::on_key_clicked);
 
     QVBoxLayout* main_layout = new QVBoxLayout(this);
 	main_layout->addLayout(smail_layout);
@@ -36,9 +38,17 @@ KeyBoardWindow::KeyBoardWindow(QWidget* parent) : QWidget(parent) {
 }
 
 void KeyBoardWindow::keyPressEvent(QKeyEvent* event) {
-	const int key = event->nativeVirtualKey();
-	if (keyboard->is_key_allowed(key)) {
-		display->setText(display->text() + keyboard->get_key_text(key));
-		keyboard->animate_button(key);
-	}
+    const int key = event->nativeVirtualKey();
+    if (keyboard->is_key_allowed(key)) {
+        display->setText(display->text() + keyboard->get_key_text(key));
+        keyboard->animate_button(key);
+    }
+}
+
+void KeyBoardWindow::on_key_clicked(int code) {
+    if (!keyboard->is_key_allowed(code)) {
+        return;
+    }
+    display->setText(display->text() + keyboard->get_key_text(code));
+    keyboard->animate_button(code);
 }

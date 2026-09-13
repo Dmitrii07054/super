@@ -10,6 +10,8 @@
 
 namespace biv {
 	class KeyBoardWindow : public QWidget {
+		Q_OBJECT
+		
 		private:
 			QLineEdit* display;
 			KeyBoard* keyboard;
@@ -19,5 +21,8 @@ namespace biv {
 			
 		protected:
 			void keyPressEvent(QKeyEvent* event) override;
+			
+		private slots:
+			void on_key_clicked(int code);
 	};
 }
