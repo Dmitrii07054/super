@@ -7,12 +7,13 @@
 
 using biv::KeyBoardWindow;
 
+
 KeyBoardWindow::KeyBoardWindow(QWidget* parent) : QWidget(parent) {
 	const int keyboard_width = 1160;
 	resize(keyboard_width, 710);
-    setWindowTitle("Грустная Клавиатура");
+    setWindowTitle("Весёлая Клавиатура");
 	
-	QPixmap pixmap("img/grustnii-smail.png");
+	QPixmap pixmap("img/happy.png");
 	QLabel* image = new QLabel(this);
 	image->setFixedSize(200, 200);
 	image->setPixmap(pixmap);
@@ -25,7 +26,7 @@ KeyBoardWindow::KeyBoardWindow(QWidget* parent) : QWidget(parent) {
 	display->setMinimumHeight(80);
 	display->setFont(QFont("Roboto", 40));
     display->setReadOnly(true);
-	display->setText("Помоги мне заработать лучше...");
+	display->setText("Вот молодец...");
 
 	keyboard = new KeyBoard(keyboard_width);
 	
@@ -38,14 +39,32 @@ KeyBoardWindow::KeyBoardWindow(QWidget* parent) : QWidget(parent) {
 }
 
 void KeyBoardWindow::keyPressEvent(QKeyEvent* event) {
-    const int key = event->nativeVirtualKey();
-    if (keyboard->is_key_allowed(key)) {
-        display->setText(display->text() + keyboard->get_key_text(key));
-        keyboard->animate_button(key);
+    const int qt_key = event->key();
+
+    if (qt_key == Qt::Key_Backspace || qt_key == Qt::Key_Space) {
+        on_key_clicked(qt_key);
+        return;
     }
+
+    const int native = event->nativeVirtualKey();
+    on_key_clicked(native);
 }
 
 void KeyBoardWindow::on_key_clicked(int code) {
+    if (code == Qt::Key_Backspace) {
+        QString t = display->text();
+        t.chop(1);
+        display->setText(t);
+        keyboard->animate_button(code);
+        return;
+    }
+
+    if (code == Qt::Key_Space) {
+        display->setText(display->text() + " ");
+        keyboard->animate_button(code);
+        return;
+    }
+
     if (!keyboard->is_key_allowed(code)) {
         return;
     }

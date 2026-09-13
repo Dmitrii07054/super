@@ -14,20 +14,26 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 
 set(PROJECT_SOURCES
         src/main.cpp
-		src/keyboard.cpp
-		src/keyboard_button.cpp
-		src/keyboard_data.cpp
-		src/keyboard_window.cpp
-		src/welcome_window.cpp
+        src/keyboard.cpp
+        src/keyboard_button.cpp
+        src/keyboard_data.cpp
+        src/keyboard_window.cpp
+        src/welcome_window.cpp
 )
 
 qt_add_executable(${PROJECT_NAME}
-	MANUAL_FINALIZATION
-	${PROJECT_SOURCES}
+    MANUAL_FINALIZATION
+    ${PROJECT_SOURCES}
 )
 
 target_link_libraries(${PROJECT_NAME} PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
 
 set_target_properties(${PROJECT_NAME} PROPERTIES WIN32_EXECUTABLE TRUE)
+
+add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_directory
+        ${CMAKE_SOURCE_DIR}/img
+        $<TARGET_FILE_DIR:${PROJECT_NAME}>/img
+)
 
 qt_finalize_executable(${PROJECT_NAME})
