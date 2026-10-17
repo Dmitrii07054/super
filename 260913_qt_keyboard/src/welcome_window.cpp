@@ -4,7 +4,7 @@
 #include <QPushButton>
 #include <QVBoxLayout>
 
-using biv::WelcomeWindow;
+using dim::WelcomeWindow;
 
 WelcomeWindow::WelcomeWindow(QWidget* parent) : QWidget(parent) {
     setWindowTitle("Добро пожаловать!");

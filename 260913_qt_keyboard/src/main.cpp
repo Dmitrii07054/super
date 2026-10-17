@@ -6,14 +6,15 @@
 int main(int argc, char* argv[]) {
     QApplication app(argc, argv);
 
-    biv::WelcomeWindow welcome;
-    biv::KeyBoardWindow keyboard_window;
-
-    QObject::connect(&welcome, &biv::WelcomeWindow::open_keyboard,
-                     &keyboard_window, &biv::KeyBoardWindow::show);
-    QObject::connect(&welcome, &biv::WelcomeWindow::open_keyboard,
-                     &welcome, &biv::WelcomeWindow::hide);
-
+    dim::WelcomeWindow welcome;
+    dim::KeyBoardWindow keyboard_window; 
+	
+	QObject::connect(&welcome, &dim::WelcomeWindow::open_keyboard, &keyboard_window,
+                 [&]() {
+                     keyboard_window.show();
+                     welcome.hide();
+                 });
+				
     welcome.show();
 
     return app.exec();

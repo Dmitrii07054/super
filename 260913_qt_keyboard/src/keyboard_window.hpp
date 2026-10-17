@@ -8,7 +8,7 @@
 
 #include "keyboard.hpp"
 
-namespace biv {
+namespace dim {
 	class KeyBoardWindow : public QWidget {
 		Q_OBJECT
 		

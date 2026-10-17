@@ -2,7 +2,7 @@
 
 #include <QSizePolicy>
 
-using biv::KeyBoardButton;
+using dim::KeyBoardButton;
 
 KeyBoardButton::KeyBoardButton(const QString& text, QWidget* parent)
     : QPushButton(parent) {

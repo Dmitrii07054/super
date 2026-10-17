@@ -5,7 +5,7 @@
 #include <QPixmap>
 #include <QVBoxLayout>
 
-using biv::KeyBoardWindow;
+using dim::KeyBoardWindow;
 
 
 KeyBoardWindow::KeyBoardWindow(QWidget* parent) : QWidget(parent) {
